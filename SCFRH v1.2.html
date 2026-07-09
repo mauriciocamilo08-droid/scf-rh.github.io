@@ -244,8 +244,8 @@ const ALERTA_DIAS = 30;
 
 /* ===================== Supabase ===================== */
 // Preencha com os dados do seu projeto (Project Settings > API no painel do Supabase)
-const SUPABASE_URL = 'https://ehpcvmbkwbekhksciaoc.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVocGN2bWJrd2Jla2hrc2NpYW9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1Mzk1MjIsImV4cCI6MjA5OTExNTUyMn0.b26Iq_PhLpMVTSeDiaRLAFliM3P0YTKvQh3BJUscoPQ';
+const SUPABASE_URL = 'https://amoqwdjlcyzerznbkeyt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtb3F3ZGpsY3l6ZXJ6bmJrZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1NTQxNzMsImV4cCI6MjA5OTEzMDE3M30.IjNmvwYw8Z92ZYxjLemMKWoht9MPV3Sq3jr8Pv3vO0o';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // Client isolado (não persiste sessão) usado só para criar novos usuários sem deslogar o master atual
 const sbAdmin = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { persistSession:false, autoRefreshToken:false, detectSessionInUrl:false } });
@@ -510,7 +510,7 @@ function pageSubtitle(){
   return {
     dashboard:'Visão geral dos prazos de folga por feriado trabalhado',
     cadastro:'Colaboradores e unidades',
-    controle:'Acompanhamento e lançamento de folgas',
+    controle:'Acompanhamento e lançamento',
     relatorios:'Filtre e exporte os dados de folgas',
     usuarios:'Gerencie quem acessa o sistema e o que cada um pode fazer',
     configuracoes:'Dados do usuário'
@@ -555,7 +555,7 @@ function renderLoginHTML(){
             <button class="login-btn" type="submit">Criar acesso e entrar</button>
           </form>
           <div class="login-switch">Já tem acesso? <button type="button" id="btnGoLogin">Entrar</button></div>
-          <div class="login-note">O acesso é autenticado pelo Supabase. Se a confirmação de e-mail estiver ativada no seu projeto, você receberá um e-mail antes de conseguir entrar.</div>
+          <div class="login-note">Seja bem vindo.</div>
         </div>
       </div>
     `;
@@ -567,7 +567,7 @@ function renderLoginHTML(){
           <div class="brand-icon">${LOGO_HTML}</div>
           <div>
             <h1>SCF RH</h1>
-            <div class="tag">Controle de Folgas</div>
+            <div class="tag">Controle Interno</div>
           </div>
         </div>
         ${loginError ? `<div class="login-error">${escapeHtml(loginError)}</div>` : ''}
